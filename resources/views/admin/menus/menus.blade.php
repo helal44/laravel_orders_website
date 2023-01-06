@@ -35,7 +35,9 @@
             <tbody>
                 @foreach ($menus as $item)
                    <tr>
-                 <td><img src="storage/images/{{$item->image->url ?? 'e'}}" alt="img" width="50"></td>
+                 <td><img src="{{ asset('storage/images/'.$item->image->url) }}" alt="img" width="50"></td>
+                
+                
                     {{-- link to menu --}}
                     <td><a href="{{route('edit_menu',$item->id)}}" class="nav nav-link">{{$item->name}}</a></td> 
                     <td>{{Str::limit($item->description,7)}}</td>

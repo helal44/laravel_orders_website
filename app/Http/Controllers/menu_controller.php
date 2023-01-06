@@ -52,7 +52,7 @@ class menu_controller extends Controller
     {
         //
        
-       $image =$r->name;
+       $image =$r->name.'.'.$r->file('image')->getClientOriginalExtension();
        
     //    Storage::putFile('public/images' , $r->file('image'),$image);
       $r->file('image')->storeAs('public/images',$image);

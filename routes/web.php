@@ -7,10 +7,9 @@ use App\Http\Controllers\Role_controller;
 use App\Http\Controllers\user_controller;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StripePayment_Controller;
-use App\Models\Role;
-use App\Models\Visa;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+
 
 
 // email  actions
@@ -157,8 +156,8 @@ Route::middleware('user')->group(function(){
  // payment gate away
 
  Route::controller(StripePayment_Controller::class)->group(function(){
-    Route::get('stripe', 'stripe')->name('payment');
-    Route::post('stripe', 'stripePost')->name('stripe.post');
+    Route::post('stripe', 'stripe')->name('payment');
+    Route::post('mystripe', 'stripePost')->name('stripe.post');
 });
 
 
