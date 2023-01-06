@@ -6,6 +6,7 @@ use App\Http\Controllers\order_controller;
 use App\Http\Controllers\Role_controller;
 use App\Http\Controllers\user_controller;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Plan_controller;
 use App\Http\Controllers\StripePayment_Controller;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -156,8 +157,14 @@ Route::middleware('user')->group(function(){
  // payment gate away
 
  Route::controller(StripePayment_Controller::class)->group(function(){
-    Route::post('stripe', 'stripe')->name('payment');
+    Route::post('stripe', 'stripe')->name('myyyypayment');
     Route::post('mystripe', 'stripePost')->name('stripe.post');
+});
+
+Route::middleware('auth')->group(function(){
+    Route::post('plans',[Plan_controller::class,'index'])->name('payment');
+    Route::get('buy{plan}',[Plan_controller::class,'show'])->name('buy');
+    Route::post('success',[Plan_controller::class,'subscribtion'])->name('success');
 });
 
 
