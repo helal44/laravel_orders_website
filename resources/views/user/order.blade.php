@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
-         <form action="{{ route('order_payment',$menu->id) }}" class=" form-group p-4" method="POST">
+         <form action="{{ route('payment') }}" class=" form-group p-4" method="POST">
             @csrf
             <div class=" row bg-white p-5 m-2">
                <div class=" col-md-4">
